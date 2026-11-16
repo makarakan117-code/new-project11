@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Wedding Invitation</title>
+  <meta name="theme-color" content="#4a9fe0">
+
+  <!-- Fonts (Google Fonts). Falls back to system Khmer fonts when offline. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Battambang:wght@400;700&family=Kantumruy+Pro:wght@400;600;700&family=Koulen&family=Moul&family=Great+Vibes&family=Cinzel:wght@500;700&family=Cormorant+Garamond:wght@500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="locked">
+
+  <!-- ===================== OPENING SCREEN (golden sunset) ===================== -->
+  <section id="opening" aria-label="Opening">
+    <!-- Replace: assets/images/sunset-background.jpg -->
+    <div class="opening-bg"></div>
+    <div class="opening-sun"></div>
+    <div class="opening-content">
+      <p class="opening-kicker anim-1">សិរីមង្គលអាពាហ៍ពិពាហ៍</p>
+      <!-- Polaroid frame. Replace: assets/images/couple.jpg -->
+      <figure class="polaroid anim-2">
+        <div class="polaroid-photo"><img id="coupleImg" src="assets/images/couple.jpg" alt="Couple"></div>
+        <figcaption id="polaroidCaption" class="polaroid-caption"></figcaption>
+      </figure>
+      <h1 class="opening-title anim-3">សូមគោរពអញ្ជើញចូលរួមពិធីមង្គលការ</h1>
+      <button id="openBtn" class="gold-btn anim-4" type="button">
+        <span>បើកធៀបការ</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+    <div class="petals" id="openingPetals" aria-hidden="true"></div>
+  </section>
+
+  <!-- ===================== MAIN ===================== -->
+  <main id="main" class="hidden">
+    <!-- Fixed Angkor Wat landscape. Replace: assets/images/angkor-background.jpg -->
+    <div class="angkor-bg" aria-hidden="true"></div>
+    <div class="sun-rays" aria-hidden="true"></div>
+    <div class="fx" id="fx" aria-hidden="true"></div>
+
+    <!-- ============ 1. HOME / MAIN INVITATION ============ -->
+    <section id="home" class="page page-home" data-nav>
+      <div class="wrap">
+        <h1 class="h-title reveal">សិរីមង្គលអាពាហ៍ពិពាហ៍</h1>
+
+        <div class="parents reveal">
+          <div class="p-col" id="groomParentsCol"></div>
+          <div class="p-col" id="brideParentsCol"></div>
+        </div>
+
+        <p class="honor reveal">មានកិត្តិយសសូមគោរពអញ្ជើញ</p>
+        <p class="body-text reveal">ឯកឧត្តម លោកឧកញ៉ា លោកជំទាវ លោក លោកស្រី អ្នកនាង កញ្ញា និង ប្រិយមិត្ត អញ្ជើញចូលរួមជាអធិបតី និងជាភ្ញៀវកិត្តិយស ដើម្បីប្រសិទ្ធពរជ័យសិរីមង្គល ក្នុង ពិធីរៀបអាពាហ៍ពិពាហ៍ កូនប្រុស កូនស្រី របស់យើងខ្ញុំ ។</p>
+
+        <div class="child-row reveal">
+          <div class="child"><small>កូនប្រុសនាម</small><b id="groomName"></b></div>
+          <div class="monogram" data-monogram></div>
+          <div class="child"><small>កូនស្រីនាម</small><b id="brideName"></b></div>
+        </div>
+
+        <p class="body-text reveal" id="datePara"></p>
+
+        <div class="std reveal">
+          <p class="script-std">Save <em>the</em> Date</p>
+          <p class="caps-en">CORDIALLY REQUEST THE HONOR OF YOUR PRESENCE ON THE AUSPICIOUS OCCASION OF THE WEDDING OF OUR CHILDREN</p>
+        </div>
+
+        <div class="names-script reveal"><span id="groomLatin"></span><span id="brideLatin"></span></div>
+
+        <div class="date-block reveal">
+          <div class="db-month" id="dbMonth"></div>
+          <div class="db-row">
+            <span class="db-day" id="dbDay"></span>
+            <b class="db-num" id="dbNum"></b>
+            <span class="db-time" id="dbTime"></span>
+          </div>
+        </div>
+
+        <p class="caps-en small reveal" id="addressEn"></p>
+      </div>
+    </section>
+
+    <!-- ============ 2. COUNTDOWN + CALENDAR ============ -->
+    <section id="calendar" class="page page-calendar" data-nav>
+      <div class="wrap">
+        <div class="countdown reveal" id="countdown" aria-label="Countdown">
+          <div class="cd-box"><b id="cdDays">០០</b><small>ថ្ងៃ</small></div>
+          <div class="cd-box"><b id="cdHours">០០</b><small>ម៉ោង</small></div>
+          <div class="cd-box"><b id="cdMins">០០</b><small>នាទី</small></div>
+          <div class="cd-box"><b id="cdSecs">០០</b><small>វិនាទី</small></div>
+        </div>
+        <p class="cd-done" id="cdDone" hidden>ថ្ងៃមង្គលការមកដល់ហើយ! 🎉</p>
+
+        <button id="saveDateBtn" class="gold-btn small reveal" type="button">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M9 15l2 2 4-4"/></svg>
+          <span>សូមរក្សាទុកកាលបរិច្ឆេទ</span>
+        </button>
+
+        <div class="monogram big reveal" data-monogram></div>
+
+        <h2 class="month-title reveal" id="monthTitle"></h2>
+        <div class="cal reveal" id="calGrid" aria-label="Calendar"></div>
+        <p class="body-text center reveal" id="dateLine"></p>
+      </div>
+    </section>
+
+    <!-- ============ 3. LOCATION ============ -->
+    <section id="location" class="page page-location" data-nav>
+      <div class="wrap">
+        <h2 class="sec-title reveal">ទីតាំងកម្មវិធី</h2>
+        <h3 class="venue reveal" id="venueTitle"></h3>
+        <p class="body-text center reveal" id="venueAddress"></p>
+
+        <div class="map-row reveal">
+          <!-- Replace: assets/images/location-map.svg (your own map picture) -->
+          <img class="map-img" id="mapImg" src="assets/images/location-map.svg" alt="Map">
+          <div class="map-side">
+            <p class="side-label">លេខទូរស័ព្ទកម្មវិធី</p>
+            <div id="phoneText"></div>
+            <p class="side-label">ស្កេនមើលផែនទី</p>
+            <!-- Replace: assets/images/map-qr.png -->
+            <img class="map-qr" id="mapQr" src="assets/images/map-qr.png" alt="Map QR">
+          </div>
+        </div>
+
+        <p class="tiny reveal">ស្កេន QR ឬចុចប៊ូតុងខាងក្រោម ដើម្បីមើលផែនទី</p>
+        <a id="mapBtn" class="gold-btn reveal" href="#" target="_blank" rel="noopener"><span>មើលផែនទី</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+
+        <p class="side-label reveal" style="margin-top:1.6rem">លេខទំនាក់ទំនង</p>
+        <div class="phones reveal" id="phoneBtns"></div>
+      </div>
+    </section>
+
+    <!-- ============ 4. SCHEDULE (vertical timeline) ============ -->
+    <section id="schedule" class="page page-schedule" data-nav>
+      <div class="wrap">
+        <h2 class="sec-title reveal">កម្មវិធីមង្គលអាពាហ៍ពិពាហ៍</h2>
+        <div id="scheduleList"></div>
+      </div>
+    </section>
+
+    <!-- ============ 5. GALLERY ============ -->
+    <section id="gallery" class="page page-gallery" data-nav>
+      <h2 class="sec-title reveal">កម្រងរូបភាពអាពាហ៍ពិពាហ៍</h2>
+      <!-- Replace images in assets/images/gallery/ (or edit CONFIG.gallery in js/script.js) -->
+      <div class="collage" id="collage"></div>
+    </section>
+
+    <!-- ============ 6. QR / WEDDING GIFT ============ -->
+    <section id="qr" class="page page-qr" data-nav>
+      <div class="khmer-card reveal">
+        <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+        <svg class="ornament" viewBox="0 0 300 30" aria-hidden="true"><use href="#orn"/></svg>
+        <h2 class="card-title">អំណោយមង្គលការ</h2>
+        <p class="body-text center">សូមអរគុណចំពោះការចូលរួមរបស់លោកអ្នក<br>ការជូនពរ និងអំណោយរបស់លោកអ្នក គឺជាកិត្តិយសដ៏ធំសម្រាប់យើងខ្ញុំ</p>
+        <button id="qrOpenBtn" class="gold-btn" type="button"><span>បើកកូដ QR</span></button>
+        <svg class="ornament" viewBox="0 0 300 30" aria-hidden="true"><use href="#orn"/></svg>
+      </div>
+    </section>
+
+    <!-- ============ 7. WISHES ============ -->
+    <section id="wishes" class="page page-wishes" data-nav>
+      <div class="wrap">
+        <h2 class="sec-title reveal">ពាក្យជូនពរ</h2>
+        <form id="wishForm" class="wish-form reveal" autocomplete="off">
+          <input id="wishName" type="text" maxlength="40" placeholder="ឈ្មោះរបស់អ្នក" required>
+          <textarea id="wishMsg" rows="3" maxlength="240" placeholder="សរសេរពាក្យជូនពរ..." required></textarea>
+          <button class="gold-btn small" type="submit"><span>ផ្ញើពាក្យជូនពរ</span></button>
+        </form>
+        <div id="wishList" class="wish-list"></div>
+        <p class="thanks reveal">សូមអរគុណ ❤ Thank you</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== QR POPUP ===================== -->
+  <div id="qrModal" class="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="qrTitle">
+    <div class="modal-backdrop" data-close></div>
+    <div class="qr-card">
+      <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+      <button class="modal-close" type="button" data-close aria-label="បិទ">&times;</button>
+      <h3 id="qrTitle">អំណោយមង្គលការ</h3>
+      <p class="qr-sub">ABA / Bakong KHQR</p>
+      <!-- Replace: assets/images/qr-code.png -->
+      <img id="qrImg" src="assets/images/qr-code.png" alt="Payment QR code">
+      <p class="qr-name" id="qrName"></p>
+      <button class="gold-btn small" type="button" data-close><span>បិទ</span></button>
+    </div>
+  </div>
+
+  <!-- ===================== LIGHTBOX ===================== -->
+  <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-modal="true">
+    <button class="lb-btn lb-close" type="button" aria-label="Close">&times;</button>
+    <button class="lb-btn lb-prev" type="button" aria-label="Previous">&#10094;</button>
+    <img id="lbImg" src="" alt="">
+    <button class="lb-btn lb-next" type="button" aria-label="Next">&#10095;</button>
+    <p class="lb-count" id="lbCount"></p>
+  </div>
+
+  <!-- ===================== BOTTOM NAV (icons, like the reference) ===================== -->
+  <nav id="bottomNav" class="bottom-nav hidden" aria-label="Main navigation">
+    <a href="#home" class="active" data-target="home" title="ទំព័រដើម" aria-label="Home">
+      <svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8M5 10v10h5v-6h4v6h5V10"/></svg></a>
+    <a href="#calendar" data-target="calendar" title="ប្រតិទិន" aria-label="Calendar">
+      <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></a>
+    <a href="#location" data-target="location" title="ទីតាំង" aria-label="Location">
+      <svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.6"/></svg></a>
+    <a href="#schedule" data-target="schedule" title="កម្មវិធី" aria-label="Schedule">
+      <svg viewBox="0 0 24 24"><path d="M9 6h11M9 12h11M9 18h11M4 6h.5M4 12h.5M4 18h.5"/></svg></a>
+    <a href="#gallery" data-target="gallery" title="រូបភាព" aria-label="Gallery">
+      <svg viewBox="0 0 24 24"><path d="M4 8h3l2-3h6l2 3h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13" r="3.6"/></svg></a>
+    <a href="#qr" data-target="qr" title="QR" aria-label="QR code">
+      <svg viewBox="0 0 24 24"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h3v3h-3zM19 14v1M14 19h2M18 18h2v2"/></svg></a>
+    <a href="#wishes" data-target="wishes" title="ជូនពរ" aria-label="Wishes">
+      <svg viewBox="0 0 24 24"><path d="M3 15h4l4 2h5a2 2 0 0 0 0-4h-3M7 15v5H3M11 17l7.500-2.500L21 16l-6 4-4 1"/><path d="M13 9.500c-2-1.500-3-3-3-4.200a1.800 1.800 0 0 1 3-1.200 1.800 1.800 0 0 1 3 1.200c0 1.200-1 2.700-3 4.200z"/></svg></a>
+  </nav>
+
+  <!-- Music control (round button, right side) -->
+  <button id="musicBtn" class="music-btn hidden" type="button" aria-label="Toggle music" aria-pressed="false">
+    <svg viewBox="0 0 24 24"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg>
+    <i class="slash"></i>
+  </button>
+  <!-- Replace: assets/music/wedding-music.mp3 -->
+  <audio id="bgMusic" loop preload="none"></audio>
+
+  <!-- Khmer-inspired ornament -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <g id="orn" fill="none" stroke="#D4AF37" stroke-width="1.6" stroke-linecap="round">
+        <path d="M10 15h100M190 15h100"/>
+        <path d="M150 3c6 6 6 18 0 24c-6-6-6-18 0-24z" fill="#E8B84F"/>
+        <path d="M128 15c8-9 14-9 22 0c-8 9-14 9-22 0zM150 15c8-9 14-9 22 0c-8 9-14 9-22 0z"/>
+        <circle cx="116" cy="15" r="2.4" fill="#D4AF37"/><circle cx="184" cy="15" r="2.4" fill="#D4AF37"/>
+      </g>
+    </defs>
+  </svg>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
